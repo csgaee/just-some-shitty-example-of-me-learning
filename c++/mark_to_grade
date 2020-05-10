@@ -1,0 +1,80 @@
+#include <iostream>
+#include <istream>
+#include <cstdio>
+
+using namespace std;
+
+int main()
+{
+
+// let student know how to use the program
+cout<<"this program will prompt you to enter number of subject that \n";
+ cout<<"you register this semester then enter each mark per subject \n ";
+ cout<<"and will give you back the grade you obtain for each subject \n ";
+cout<<"---------------------------------------------------------------\n";
+
+
+// declare variable that hold the number of subjects
+int sub_num;
+cout<<"enter the number of subjects registered this semester:";
+cin>>sub_num;
+
+
+/* initialize array of float
+   to store marks
+*/
+float mark[sub_num];
+
+
+/* ask for input - marks
+   and put marks in array of floats
+   so the student and precisely put float point marks
+*/
+    for(int m=0; m<sub_num; m++){
+
+            printf("\n \t Enter marks that you obtained in subject number %d :",m+1);
+//            cout<<"enter the mark of subject";
+            cin>>mark[m];
+	}
+
+/* initialize array of character
+   to store grades
+*/
+char *grade[sub_num];
+
+
+// convert the marks to grades
+    for(int i=0; i<sub_num; i++){
+        if(mark[i]>80)
+	{
+		grade[i]="E";
+	}
+	else if(mark[i]>60 && mark[i]<=80)
+	{
+		grade[i]="V";
+	}
+	else if(mark[i]>50 && mark[i]<=60)
+	{
+		grade[i]="G";
+	}
+	else if(mark[i]>40 && mark[i]<=50)
+	{
+		grade[i]="P";
+	}
+	else {
+        grade[i]="f";
+	}
+    }
+
+
+//  print table that have ( index , marks , grades )
+cout<<"---------------------------------------------------------------\n";
+cout<<"\nthe final table of your marks and corresponding grades\n\n";
+cout<<"---------------------------------------------------------------\n";
+for (int i=0; i<sub_num; i++){
+    cout<<"-------------------------\n";
+    cout<<"index"<<"\t"<<"mark"<<"\t"<<"grade"<<"\n";
+    cout<<"-------------------------\n";
+    cout<<i<<"\t"<<mark[i]<<"\t"<<grade[i]<<"\n";
+}
+}
